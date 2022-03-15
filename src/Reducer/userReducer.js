@@ -3,6 +3,8 @@
 // kia krna ha
 
 import { createReducer } from "@reduxjs/toolkit";
+// now you can import that not write the hardcoded
+import { updateAge, updateCoder, updateName } from "../Action/Action";
 
 const initialStore = {
   name: "taha",
@@ -23,10 +25,13 @@ const initialStore = {
 // REDUX Toolkit ka dareka
 
 export default createReducer(initialStore, (builder) => {
-  builder.addCase("UPDATE_AGE", (state, action) => {
+  builder.addCase(updateAge, (state, action) => {
     state.age = action.payload;
   });
-  builder.addCase("NAME_UPDATE", (state, action) => {
+  builder.addCase(updateName, (state, action) => {
     state.name = action.payload;
+  });
+  builder.addCase(updateCoder, (state, action) => {
+    state.status = action.payload;
   });
 });
