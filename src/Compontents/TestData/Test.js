@@ -1,7 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { updateCoder, updateAge, fetchName } from "../../Action/Action";
-import { updateAge, updateCoder, updateName } from "../../Reducer/userReducer";
+import {
+  updatedAge,
+  updatedCoder,
+  updatedName,
+} from "../../Reducer/userReducer";
 
 const Test = () => {
   // store se kuche bhe acess kr ne lye
@@ -14,24 +18,24 @@ const Test = () => {
 
   const UpdateAge = (age) => {
     //   Action dispatch hogyqa
-    Dispatch(updateAge(age));
+    Dispatch(updatedAge(age));
   };
 
   const UpdateName = (name) => {
     // const res = await fetch("https://jsonplaceholder.typicode.com/users");
     // const result = await res.json();
-    //   Action dispatch hogyqa
     // for api wala action se data aye ga
     // Dispatch(updateName(fetchName()));
-    Dispatch(updateName(name));
+
+    //   Action dispatch hogyqa
+    Dispatch(updatedName(name));
   };
   const UpdateCoder = (status) => {
     //   Action dispatch hogyqa
-    Dispatch(updateCoder(status));
+    Dispatch(updatedCoder(status));
   };
   return (
     <>
-      <h1 style={{ color: "red" }}>Taha Ahmed</h1>
       <div className="text-center mt-40 text-white">
         <h1>I am {name}</h1>
         <button

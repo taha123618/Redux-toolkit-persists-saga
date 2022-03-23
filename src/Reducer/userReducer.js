@@ -54,6 +54,6 @@ const userReducer = createSlice({
   },
 });
 
-export const { updateName, updateAge, updateCoder } = userReducer.actions;
+export const { updatedName, updatedAge, updatedCoder } = userReducer.actions;
 
 export default userReducer.reducer;
