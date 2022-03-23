@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateCoder, updateAge, fetchName } from "../../Action/Action";
+// import { updateCoder, updateAge, fetchName } from "../../Action/Action";
+import { updateAge, updateCoder, updateName } from "../../Reducer/userReducer";
 
 const Test = () => {
   // store se kuche bhe acess kr ne lye
@@ -9,10 +10,6 @@ const Test = () => {
     // console.log(state);
   });
 
-  // const name = "";
-  // const age = "";
-  // const status = "";
-
   const Dispatch = useDispatch();
 
   const UpdateAge = (age) => {
@@ -20,11 +17,13 @@ const Test = () => {
     Dispatch(updateAge(age));
   };
 
-  const UpdateName = async () => {
+  const UpdateName = (name) => {
     // const res = await fetch("https://jsonplaceholder.typicode.com/users");
     // const result = await res.json();
     //   Action dispatch hogyqa
-    Dispatch(fetchName());
+    // for api wala action se data aye ga
+    // Dispatch(updateName(fetchName()));
+    Dispatch(updateName(name));
   };
   const UpdateCoder = (status) => {
     //   Action dispatch hogyqa

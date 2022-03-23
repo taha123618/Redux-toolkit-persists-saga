@@ -2,7 +2,7 @@
 // Reducers can only make copies of the original values, and then they can mutate the copies.
 // kia krna ha
 
-import { createReducer } from "@reduxjs/toolkit";
+import { createReducer, createSlice } from "@reduxjs/toolkit";
 // now you can import that not write the hardcoded
 import { updateAge, updateCoder, updateName } from "../Action/Action";
 
@@ -24,14 +24,36 @@ const initialStore = {
 
 // REDUX Toolkit ka dareka
 
-export default createReducer(initialStore, (builder) => {
-  builder.addCase(updateAge, (state, action) => {
-    state.age = action.payload;
-  });
-  builder.addCase(updateName, (state, action) => {
-    state.name = action.payload;
-  });
-  builder.addCase(updateCoder, (state, action) => {
-    state.status = action.payload;
-  });
+// export default createReducer(initialStore, (builder) => {
+//   builder.addCase(updateAge, (state, action) => {
+//     state.age = action.payload;
+//   });
+//   builder.addCase(updateName, (state, action) => {
+//     state.name = action.payload;
+//   });
+//   builder.addCase(updateCoder, (state, action) => {
+//     state.status = action.payload;
+//   });
+// });
+
+// create slice way
+
+const userReducer = createSlice({
+  name: "person",
+  initialState: initialStore,
+  reducers: {
+    updateName(state, action) {
+      state.name = action.payload;
+    },
+    updateAge(state, action) {
+      state.age = action.payload;
+    },
+    updateCoder(state, action) {
+      state.status = action.payload;
+    },
+  },
 });
+
+export const { updateName, updateAge, updateCoder } = userReducer.actions;
+
+export default userReducer.reducer;
