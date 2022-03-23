@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateCoder, updateAge, updateName } from "../../Action/Action";
+import { updateCoder, updateAge, fetchName } from "../../Action/Action";
 
 const Test = () => {
   // store se kuche bhe acess kr ne lye
@@ -20,9 +20,11 @@ const Test = () => {
     Dispatch(updateAge(age));
   };
 
-  const UpdateName = (name) => {
+  const UpdateName = async () => {
+    // const res = await fetch("https://jsonplaceholder.typicode.com/users");
+    // const result = await res.json();
     //   Action dispatch hogyqa
-    Dispatch(updateName(name));
+    Dispatch(fetchName());
   };
   const UpdateCoder = (status) => {
     //   Action dispatch hogyqa
@@ -30,11 +32,12 @@ const Test = () => {
   };
   return (
     <>
+      <h1 style={{ color: "red" }}>Taha Ahmed</h1>
       <div className="text-center mt-40 text-white">
         <h1>I am {name}</h1>
         <button
           className="bg-green-400 rounded-full p-4 m-4 hover:bg-green-900 capitalize font-bold"
-          onClick={() => UpdateName("hamza")}
+          onClick={() => UpdateName()}
         >
           update NAME
         </button>
