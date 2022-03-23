@@ -5,6 +5,7 @@ import {
   updatedAge,
   updatedCoder,
   updatedName,
+  fetchUserName,
 } from "../../Reducer/userReducer";
 
 const Test = () => {
@@ -24,11 +25,11 @@ const Test = () => {
   const UpdateName = (name) => {
     // const res = await fetch("https://jsonplaceholder.typicode.com/users");
     // const result = await res.json();
+    //   Action dispatch hogyqa
+    Dispatch(fetchUserName());
+
     // for api wala action se data aye ga
     // Dispatch(updateName(fetchName()));
-
-    //   Action dispatch hogyqa
-    Dispatch(updatedName(name));
   };
   const UpdateCoder = (status) => {
     //   Action dispatch hogyqa
